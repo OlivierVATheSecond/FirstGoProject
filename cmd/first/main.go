@@ -6,7 +6,16 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
+
+func add(a int, b int) int {
+	return a + b
+}
+
+func subtract(a int, b int) int {
+	return a - b
+}
 
 func main() {
 	fmt.Print("First num: ")
@@ -17,7 +26,16 @@ func main() {
 	var b int
 	fmt.Scanln(&b)
 
-	var c int = a + b
+	fmt.Print("Opperation(add/subtract):")
+	var opp string
+	fmt.Scanln(&opp)
+	oppLow := strings.ToLower(opp)
 
-	fmt.Println("Output:", c)
+	if oppLow == "add" {
+		var c int = add(a, b)
+		fmt.Println("Result:", c)
+	} else if oppLow == "subtract" {
+		var c int = subtract(a, b)
+		fmt.Println("Result:", c)
+	}
 }
